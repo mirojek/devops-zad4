@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: lab4-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: lab4user
+      POSTGRES_PASSWORD: lab4password
+      POSTGRES_DB: lab4db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

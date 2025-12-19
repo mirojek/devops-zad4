@@ -28,3 +28,17 @@ jobs:
       working-directory: zad1-nginx
       run: |
         docker build -t moj-nginx:v1 .
+
+  zad2-db:
+    name: Zadanie 2 - walidacja docker-compose (Postgres)
+    runs-on: ubuntu-22.04
+    needs: [zad1-nginx]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Validate docker-compose config (zad2-db)
+      working-directory: zad2-db
+      run: |
+        docker compose config
+
