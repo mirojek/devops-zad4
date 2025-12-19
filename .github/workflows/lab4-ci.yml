@@ -42,3 +42,15 @@ jobs:
       run: |
         docker compose config
 
+  zad3-app-db:
+    name: Zadanie 3 - validate App+DB compose
+    runs-on: ubuntu-22.04
+    needs: zad2-db
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Validate docker-compose config (zad3-app-db)
+      working-directory: zad3-app-db
+      run: |
+        docker compose config
